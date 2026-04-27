@@ -12,19 +12,12 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <TextView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/logo"
-            android:textSize="60sp"/>
+            android:src="@drawable/logo" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Food Order"
-            android:textColor="#FFFFFF"
-            android:textSize="28sp"
-            android:textStyle="bold"/>
+
 
     </LinearLayout>
 
