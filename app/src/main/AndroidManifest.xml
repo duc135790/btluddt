@@ -25,6 +25,5 @@
         <activity android:name=".MainActivity"/>
         <activity android:name=".FoodDetailActivity"/>
         <activity android:name=".PaymentActivity"/>
-        <activity android:name=".AdminActivity"/>
     </application>
 </manifest>

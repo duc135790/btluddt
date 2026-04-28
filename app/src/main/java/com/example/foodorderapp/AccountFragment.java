@@ -27,20 +27,15 @@ public class AccountFragment extends Fragment {
 
         SharedPreferences prefs = requireActivity().getSharedPreferences("user_prefs", Context.MODE_PRIVATE);
         String fullname = prefs.getString("fullname", "");
-        String role     = prefs.getString("role", "customer");
 
         TextView tvFullname    = view.findViewById(R.id.tv_fullname);
         TextView tvUsername    = view.findViewById(R.id.tv_username);
         TextView tvTotalOrders = view.findViewById(R.id.tv_total_orders);
         TextView tvTotalSpent  = view.findViewById(R.id.tv_total_spent);
         Button btnLogout       = view.findViewById(R.id.btn_logout);
-        Button btnManageMenu   = view.findViewById(R.id.btn_manage_menu);
-        View layoutAdmin       = view.findViewById(R.id.layout_admin);
 
         tvFullname.setText(fullname);
         tvUsername.setText("@" + prefs.getString("username", ""));
-
-        if (role.equals("admin")) layoutAdmin.setVisibility(View.VISIBLE);
 
         ApiService apiService = ApiClient.getClient().create(ApiService.class);
         NumberFormat fmt = NumberFormat.getInstance(new Locale("vi", "VN"));
@@ -56,11 +51,6 @@ public class AccountFragment extends Fragment {
             }
             @Override public void onFailure(Call<ApiResponse<StatsApi>> call, Throwable t) {}
         });
-
-        // Admin bấm vào mở AdminActivity
-        btnManageMenu.setOnClickListener(v ->
-                startActivity(new Intent(requireContext(), AdminActivity.class))
-        );
 
         btnLogout.setOnClickListener(v -> {
             prefs.edit().clear().apply();

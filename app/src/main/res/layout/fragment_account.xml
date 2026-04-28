@@ -41,7 +41,6 @@
 
     </LinearLayout>
 
-    <!-- Thống kê -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -104,38 +103,6 @@
                 android:textColor="#666666"/>
 
         </LinearLayout>
-
-    </LinearLayout>
-
-    <!-- Menu quản lý (chỉ hiện nếu là admin) -->
-    <LinearLayout
-        android:id="@+id/layout_admin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#FFFFFF"
-        android:layout_marginTop="8dp"
-        android:padding="8dp"
-        android:visibility="gone">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="⚙ Quản lý"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:padding="8dp"
-            android:textColor="#212121"/>
-
-        <Button
-            android:id="@+id/btn_manage_menu"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="🍽 Quản lý thực đơn"
-            android:backgroundTint="#FFFFFF"
-            android:textColor="#212121"
-            android:gravity="start|center_vertical"
-            android:paddingStart="16dp"/>
 
     </LinearLayout>
 

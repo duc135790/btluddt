@@ -9,8 +9,10 @@ import android.view.*;
 import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -38,9 +40,7 @@ public class HomeFragment extends Fragment {
         SharedPreferences prefs = requireActivity().getSharedPreferences("user_prefs", requireActivity().MODE_PRIVATE);
         tvGreeting.setText("Xin chào, " + prefs.getString("fullname", "bạn") + "! 👋");
 
-        // Banner tự cuộn
         setupBanner(view);
-
         loadMenu(null);
 
         etSearch.addTextChangedListener(new TextWatcher() {
@@ -71,11 +71,7 @@ public class HomeFragment extends Fragment {
                 R.drawable.banner2,
                 R.drawable.banner3
         };
-        String[] bannerTexts = {
-                "Sang trọng",
-                "Uy tín",
-                "Tự nhiên"
-        };
+        String[] bannerTexts = {"Sang trọng", "Uy tín", "Tự nhiên"};
         ViewFlipper flipper = view.findViewById(R.id.view_flipper);
         for (int i = 0; i < bannerImages.length; i++) {
             View bannerView = LayoutInflater.from(requireContext()).inflate(R.layout.item_banner, flipper, false);
@@ -97,7 +93,23 @@ public class HomeFragment extends Fragment {
                                    Response<ApiResponse<List<MenuItemApi>>> response) {
                 if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
                     menuList = response.body().getData();
-                    MenuItemApiAdapter adapter = new MenuItemApiAdapter(requireContext(), menuList, null, null);
+                    ArrayAdapter<MenuItemApi> adapter = new ArrayAdapter<MenuItemApi>(
+                            requireContext(), R.layout.item_menu, menuList) {
+                        @NonNull @Override
+                        public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+                            if (convertView == null)
+                                convertView = LayoutInflater.from(getContext())
+                                        .inflate(R.layout.item_menu, parent, false);
+                            MenuItemApi item = menuList.get(position);
+                            NumberFormat fmt = NumberFormat.getInstance(new Locale("vi", "VN"));
+                            ((TextView) convertView.findViewById(R.id.tv_name)).setText(item.getName());
+                            ((TextView) convertView.findViewById(R.id.tv_price)).setText(fmt.format(item.getPrice()) + "đ");
+                            ((TextView) convertView.findViewById(R.id.tv_desc)).setText(item.getDescription());
+                            convertView.findViewById(R.id.btn_edit).setVisibility(View.GONE);
+                            convertView.findViewById(R.id.btn_delete).setVisibility(View.GONE);
+                            return convertView;
+                        }
+                    };
                     lvMenu.setAdapter(adapter);
                 }
             }
