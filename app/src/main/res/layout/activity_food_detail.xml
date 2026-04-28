@@ -32,6 +32,14 @@
                 android:textSize="14sp" android:textColor="#666666"
                 android:layout_marginTop="8dp" android:layout_marginBottom="16dp"/>
 
+            <!-- Chọn bàn -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="🪑 Chọn bàn" android:textSize="16sp" android:textStyle="bold"
+                android:textColor="#212121" android:layout_marginBottom="8dp"/>
+            <Spinner android:id="@+id/sp_table"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"/>
+
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text="🧂 Tùy chọn" android:textSize="16sp" android:textStyle="bold"
                 android:textColor="#212121" android:layout_marginBottom="8dp"/>
@@ -69,13 +77,12 @@
                 android:layout_height="80dp" android:background="@drawable/bg_edittext"
                 android:hint="VD: ít đá, thêm chanh..." android:padding="10dp"
                 android:gravity="top" android:layout_marginBottom="16dp"/>
-
         </LinearLayout>
     </ScrollView>
 
     <Button android:id="@+id/btn_add_to_cart"
         android:layout_width="match_parent" android:layout_height="56dp"
-        android:text="🛒 Thêm vào giỏ hàng"
+        android:text="🍽 Thêm món"
         android:textColor="#FFFFFF" android:textSize="16sp"
         android:backgroundTint="#FF5722" android:layout_margin="12dp"/>
 

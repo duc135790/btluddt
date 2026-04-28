@@ -56,11 +56,12 @@ public class HomeFragment extends Fragment {
         lvMenu.setOnItemClickListener((parent, v, position, id) -> {
             MenuItemApi item = menuList.get(position);
             Intent intent = new Intent(requireContext(), FoodDetailActivity.class);
-            intent.putExtra("id",   item.getId());
-            intent.putExtra("name", item.getName());
-            intent.putExtra("price", item.getPrice());
-            intent.putExtra("desc", item.getDescription());
+            intent.putExtra("id",          item.getId());
+            intent.putExtra("name",        item.getName());
+            intent.putExtra("price",       item.getPrice());
+            intent.putExtra("desc",        item.getDescription());
             intent.putExtra("category_id", item.getCategoryId());
+            intent.putExtra("image_name",  item.getImageName()); // MỚI
             startActivity(intent);
         });
     }

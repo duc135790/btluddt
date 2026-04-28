@@ -30,4 +30,11 @@ public interface ApiService {
 
     @GET("api/stats")
     Call<ApiResponse<StatsApi>> getStats();
+
+    // MỚI
+    @GET("api/tables")
+    Call<ApiResponse<List<TableApi>>> getTables();
+
+    @POST("api/bookings")
+    Call<ApiResponse<Map<String, Integer>>> createBooking(@Body BookingApi booking);
 }

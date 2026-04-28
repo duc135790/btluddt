@@ -1,6 +1,8 @@
 package com.example.foodorderapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.*;
 import android.widget.*;
@@ -50,19 +52,51 @@ public class CartFragment extends Fragment {
                     convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_cart, parent, false);
                 CartItem ci = cartItems.get(position);
                 MenuItemApi item = ci.getMenuItemApi();
-                ((TextView) convertView.findViewById(R.id.tv_name)).setText(item.getName() + " x" + ci.getQuantity());
-                ((TextView) convertView.findViewById(R.id.tv_price)).setText(fmt.format(item.getPrice() * ci.getQuantity()) + "đ");
-                TextView tvNote = convertView.findViewById(R.id.tv_note);
+
+                TextView tvName  = convertView.findViewById(R.id.tv_name);
+                TextView tvPrice = convertView.findViewById(R.id.tv_price);
+                TextView tvNote  = convertView.findViewById(R.id.tv_note);
+                TextView tvTable = convertView.findViewById(R.id.tv_table);
+                TextView tvQty   = convertView.findViewById(R.id.tv_cart_qty);
+                ImageButton btnMinus  = convertView.findViewById(R.id.btn_cart_minus);
+                ImageButton btnPlus   = convertView.findViewById(R.id.btn_cart_plus);
+                Button btnRemove      = convertView.findViewById(R.id.btn_remove);
+
+                tvName.setText(item.getName());
+                tvPrice.setText(fmt.format(item.getPrice() * ci.getQuantity()) + "đ");
+                tvQty.setText(String.valueOf(ci.getQuantity()));
+
                 if (ci.getNote() != null && !ci.getNote().isEmpty()) {
                     tvNote.setVisibility(View.VISIBLE);
                     tvNote.setText("📝 " + ci.getNote());
                 } else {
                     tvNote.setVisibility(View.GONE);
                 }
-                convertView.findViewById(R.id.btn_remove).setOnClickListener(v -> {
+
+                if (ci.getTableNumber() != null && !ci.getTableNumber().isEmpty()) {
+                    tvTable.setVisibility(View.VISIBLE);
+                    tvTable.setText("🪑 Bàn: " + ci.getTableNumber());
+                } else {
+                    tvTable.setVisibility(View.GONE);
+                }
+
+                btnMinus.setOnClickListener(v -> {
+                    if (ci.getQuantity() > 1) {
+                        ci.setQuantity(ci.getQuantity() - 1);
+                        loadCart();
+                    }
+                });
+
+                btnPlus.setOnClickListener(v -> {
+                    ci.setQuantity(ci.getQuantity() + 1);
+                    loadCart();
+                });
+
+                btnRemove.setOnClickListener(v -> {
                     CartManager.getInstance().getItems().remove(position);
                     loadCart();
                 });
+
                 return convertView;
             }
         };

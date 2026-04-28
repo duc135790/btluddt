@@ -11,6 +11,8 @@ public class MenuItemApi {
     private int categoryId;
     @SerializedName("is_available")
     private int isAvailable;
+    @SerializedName("image_name")
+    private String imageName;  // tên file drawable, vd: "gio_trau"
 
     public MenuItemApi() {}
 
@@ -26,6 +28,7 @@ public class MenuItemApi {
     public double getPrice() { return price; }
     public String getDescription() { return description; }
     public int getCategoryId() { return categoryId; }
+    public String getImageName() { return imageName; }
     public void setId(int id) { this.id = id; }
     public void setName(String name) { this.name = name; }
     public void setPrice(double price) { this.price = price; }
