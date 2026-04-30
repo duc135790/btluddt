@@ -38,7 +38,7 @@ public class HomeFragment extends Fragment {
         apiService = ApiClient.getClient().create(ApiService.class);
 
         SharedPreferences prefs = requireActivity().getSharedPreferences("user_prefs", requireActivity().MODE_PRIVATE);
-        tvGreeting.setText("Xin chào, " + prefs.getString("fullname", "bạn") + "! 👋");
+        tvGreeting.setText("Xin chào, " + prefs.getString("fullname", "bạn") + "! ");
 
         setupBanner(view);
         loadMenu(null);
@@ -106,8 +106,7 @@ public class HomeFragment extends Fragment {
                             ((TextView) convertView.findViewById(R.id.tv_name)).setText(item.getName());
                             ((TextView) convertView.findViewById(R.id.tv_price)).setText(fmt.format(item.getPrice()) + "đ");
                             ((TextView) convertView.findViewById(R.id.tv_desc)).setText(item.getDescription());
-                            convertView.findViewById(R.id.btn_edit).setVisibility(View.GONE);
-                            convertView.findViewById(R.id.btn_delete).setVisibility(View.GONE);
+
                             return convertView;
                         }
                     };

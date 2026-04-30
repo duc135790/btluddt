@@ -23,10 +23,12 @@
             <TextView android:id="@+id/tv_detail_name"
                 android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:textSize="22sp" android:textStyle="bold" android:textColor="#212121"/>
+
             <TextView android:id="@+id/tv_detail_price"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:textSize="20sp" android:textColor="#FF5722" android:textStyle="bold"
                 android:layout_marginTop="4dp"/>
+
             <TextView android:id="@+id/tv_detail_desc"
                 android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:textSize="14sp" android:textColor="#666666"
@@ -34,55 +36,62 @@
 
             <!-- Chọn bàn -->
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="🪑 Chọn bàn" android:textSize="16sp" android:textStyle="bold"
+                android:text="Chọn bàn" android:textSize="16sp" android:textStyle="bold"
                 android:textColor="#212121" android:layout_marginBottom="8dp"/>
             <Spinner android:id="@+id/sp_table"
                 android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"/>
 
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="🧂 Tùy chọn" android:textSize="16sp" android:textStyle="bold"
-                android:textColor="#212121" android:layout_marginBottom="8dp"/>
-            <CheckBox android:id="@+id/cb_spicy" android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="🌶 Thêm cay" android:textSize="14sp"/>
-            <CheckBox android:id="@+id/cb_extra_sauce" android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="🥣 Thêm sốt" android:textSize="14sp"/>
-            <CheckBox android:id="@+id/cb_no_onion" android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="🚫 Không hành"
-                android:textSize="14sp" android:layout_marginBottom="16dp"/>
 
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="📦 Số lượng" android:textSize="16sp" android:textStyle="bold"
+                android:text="Số lượng" android:textSize="16sp" android:textStyle="bold"
                 android:textColor="#212121" android:layout_marginBottom="8dp"/>
             <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:orientation="horizontal" android:gravity="center_vertical"
                 android:layout_marginBottom="16dp">
-                <ImageButton android:id="@+id/btn_minus" android:layout_width="40dp"
+                <Button android:id="@+id/btn_minus"
+                    android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@android:drawable/ic_menu_close_clear_cancel"
-                    android:backgroundTint="#EEEEEE"/>
-                <TextView android:id="@+id/tv_quantity" android:layout_width="50dp"
-                    android:layout_height="wrap_content" android:text="1"
-                    android:textSize="20sp" android:textStyle="bold" android:gravity="center"
+                    android:text="−"
+                    android:textSize="24sp"
+                    android:textColor="#212121"
+                    android:backgroundTint="#EEEEEE"
+                    android:padding="0dp"/>
+
+                <TextView android:id="@+id/tv_quantity"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
                     android:textColor="#212121"/>
-                <ImageButton android:id="@+id/btn_plus" android:layout_width="40dp"
-                    android:layout_height="40dp" android:src="@android:drawable/ic_menu_add"
-                    android:backgroundTint="#FF5722" android:tint="#FFFFFF"/>
+
+                <Button android:id="@+id/btn_plus"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="+"
+                    android:textSize="24sp"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#FF5722"
+                    android:padding="0dp"/>
             </LinearLayout>
 
+
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="📝 Ghi chú cho quán" android:textSize="16sp" android:textStyle="bold"
+                android:text="Ghi chú cho quán" android:textSize="16sp" android:textStyle="bold"
                 android:textColor="#212121" android:layout_marginBottom="8dp"/>
             <EditText android:id="@+id/et_note" android:layout_width="match_parent"
                 android:layout_height="80dp" android:background="@drawable/bg_edittext"
-                android:hint="VD: ít đá, thêm chanh..." android:padding="10dp"
+                android:hint="VD:ít cay, thêm chanh..." android:padding="10dp"
                 android:gravity="top" android:layout_marginBottom="16dp"/>
+
         </LinearLayout>
     </ScrollView>
 
     <Button android:id="@+id/btn_add_to_cart"
         android:layout_width="match_parent" android:layout_height="56dp"
-        android:text="🍽 Thêm món"
+        android:text="Thêm món"
         android:textColor="#FFFFFF" android:textSize="16sp"
         android:backgroundTint="#FF5722" android:layout_margin="12dp"/>
 

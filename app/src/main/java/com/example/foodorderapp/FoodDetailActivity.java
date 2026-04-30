@@ -1,5 +1,4 @@
 package com.example.foodorderapp;
-
 import android.os.Bundle;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,18 +9,16 @@ import java.util.Locale;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
+import android.widget.Button;
 public class FoodDetailActivity extends AppCompatActivity {
     private int quantity = 1;
     private MenuItemApi item;
     private Spinner spTable;
     private List<TableApi> tableList = new ArrayList<>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_detail);
-
         item = new MenuItemApi(
                 getIntent().getStringExtra("name"),
                 getIntent().getDoubleExtra("price", 0),
@@ -29,29 +26,22 @@ public class FoodDetailActivity extends AppCompatActivity {
                 getIntent().getIntExtra("category_id", 1)
         );
         item.setId(getIntent().getIntExtra("id", 0));
-
         NumberFormat fmt = NumberFormat.getInstance(new Locale("vi", "VN"));
         TextView tvName  = findViewById(R.id.tv_detail_name);
         TextView tvPrice = findViewById(R.id.tv_detail_price);
         TextView tvDesc  = findViewById(R.id.tv_detail_desc);
         TextView tvQty   = findViewById(R.id.tv_quantity);
         ImageView ivFood = findViewById(R.id.iv_detail_food);
-        ImageButton btnMinus  = findViewById(R.id.btn_minus);
-        ImageButton btnPlus   = findViewById(R.id.btn_plus);
-        CheckBox cbSpicy      = findViewById(R.id.cb_spicy);
-        CheckBox cbExtraSauce = findViewById(R.id.cb_extra_sauce);
-        CheckBox cbNoOnion    = findViewById(R.id.cb_no_onion);
-        EditText etNote       = findViewById(R.id.et_note);
-        Button btnAdd         = findViewById(R.id.btn_add_to_cart);
-        ImageButton btnBack   = findViewById(R.id.btn_back);
+        Button btnMinus = findViewById(R.id.btn_minus);
+        Button btnPlus  = findViewById(R.id.btn_plus);
+        EditText etNote      = findViewById(R.id.et_note);
+        Button btnAdd        = findViewById(R.id.btn_add_to_cart);
+        ImageButton btnBack  = findViewById(R.id.btn_back);
         spTable = findViewById(R.id.sp_table);
-
         tvName.setText(item.getName());
         tvPrice.setText(fmt.format(item.getPrice()) + "đ");
         tvDesc.setText(item.getDescription());
         tvQty.setText(String.valueOf(quantity));
-
-        // Load ảnh từ drawable theo image_name
         String imageName = getIntent().getStringExtra("image_name");
         if (imageName != null && !imageName.isEmpty()) {
             int resId = getResources().getIdentifier(imageName, "drawable", getPackageName());
@@ -87,12 +77,6 @@ public class FoodDetailActivity extends AppCompatActivity {
         btnPlus.setOnClickListener(v -> { quantity++; tvQty.setText(String.valueOf(quantity)); });
 
         btnAdd.setOnClickListener(v -> {
-            StringBuilder extras = new StringBuilder();
-            if (cbSpicy.isChecked())      extras.append("Cay, ");
-            if (cbExtraSauce.isChecked()) extras.append("Thêm sốt, ");
-            if (cbNoOnion.isChecked())    extras.append("Không hành, ");
-
-            // Lấy bàn đã chọn
             String tableNumber = null;
             int pos = spTable.getSelectedItemPosition();
             if (pos > 0 && pos <= tableList.size())
@@ -102,7 +86,6 @@ public class FoodDetailActivity extends AppCompatActivity {
             ci.setMenuItemApi(item);
             ci.setQuantity(quantity);
             ci.setNote(etNote.getText().toString().trim());
-            ci.setExtras(extras.toString());
             ci.setTableNumber(tableNumber);
             CartManager.getInstance().addItem(ci);
             Toast.makeText(this, "✅ Đã thêm " + item.getName() + " x" + quantity, Toast.LENGTH_SHORT).show();

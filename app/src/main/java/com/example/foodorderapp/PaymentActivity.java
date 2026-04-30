@@ -69,7 +69,7 @@ public class PaymentActivity extends AppCompatActivity {
                                                Response<ApiResponse<Map<String, Integer>>> response) {
                             if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
                                 CartManager.getInstance().clear();
-                                Toast.makeText(PaymentActivity.this, "🎉 Đặt hàng thành công!", Toast.LENGTH_LONG).show();
+                                Toast.makeText(PaymentActivity.this, "Đặt hàng thành công!", Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(PaymentActivity.this, HomeActivity.class);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent);

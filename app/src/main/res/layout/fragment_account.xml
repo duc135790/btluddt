@@ -14,46 +14,59 @@
         android:gravity="center">
 
         <TextView
-            android:id="@+id/tv_avatar"
-            android:layout_width="80dp" android:layout_height="80dp"
-            android:gravity="center" android:text="👤" android:textSize="40sp"
-            android:background="#FF8A65" android:layout_marginBottom="8dp"/>
-
-        <TextView android:id="@+id/tv_fullname"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="Tên người dùng" android:textColor="#FFFFFF"
-            android:textSize="20sp" android:textStyle="bold"/>
-
-        <TextView android:id="@+id/tv_username"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:textColor="#FFCCBC" android:textSize="14sp"/>
-
-    </LinearLayout>
-
-    <!-- Nút Đặt bàn -->
-    <LinearLayout
-        android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:orientation="vertical" android:background="#FFFFFF"
-        android:layout_marginTop="8dp" android:padding="8dp">
-
-        <Button android:id="@+id/btn_booking"
-            android:layout_width="match_parent" android:layout_height="52dp"
-            android:text="📅  Đặt bàn" android:backgroundTint="#FF5722"
-            android:textColor="#FFFFFF" android:textSize="15sp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:text="👤"
+            android:textSize="40sp"
+            android:background="#FF8A65"
             android:layout_marginBottom="8dp"/>
 
-        <Button android:id="@+id/btn_support"
-            android:layout_width="match_parent" android:layout_height="52dp"
-            android:text="💬  Hỗ trợ  Voucher" android:backgroundTint="#FFFFFF"
-            android:textColor="#FF5722" android:textSize="15sp"/>
+        <TextView android:id="@+id/tv_fullname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên người dùng"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView android:id="@+id/tv_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFCCBC"
+            android:textSize="14sp"/>
 
     </LinearLayout>
 
-    <View android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:layout_marginTop="8dp"
+        android:padding="8dp">
+
+        <Button android:id="@+id/btn_edit_profile"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Sửa thông tin cá nhân"
+            android:backgroundTint="#FF5722"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"/>
+
+    </LinearLayout>
+
+    <View android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
     <Button android:id="@+id/btn_logout"
-        android:layout_width="match_parent" android:layout_height="50dp"
-        android:text="Đăng xuất" android:textColor="#FFFFFF" android:textSize="16sp"
-        android:backgroundTint="#F44336" android:layout_margin="16dp"/>
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Đăng xuất"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:backgroundTint="#F44336"
+        android:layout_margin="16dp"/>
 
 </LinearLayout>

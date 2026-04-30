@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="🛒 Giỏ hàng"
+            android:text="Giỏ hàng"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold"/>
@@ -67,7 +67,7 @@
             android:id="@+id/btn_order"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="🍽 Đặt món ngay"
+            android:text="Đặt món ngay"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
             android:backgroundTint="#FF5722"/>

@@ -51,11 +51,11 @@ public class OrdersFragment extends Fragment {
                             ((TextView) convertView.findViewById(R.id.tv_order_date)).setText(order.getCreatedAt());
                             TextView tvStatus = convertView.findViewById(R.id.tv_order_status);
                             switch (order.getStatus()) {
-                                case "pending":    tvStatus.setBackgroundColor(0xFFFF9800); tvStatus.setText("⏳ Chờ xử lý"); break;
-                                case "preparing":  tvStatus.setBackgroundColor(0xFF2196F3); tvStatus.setText("🔥 Đang làm"); break;
-                                case "ready":      tvStatus.setBackgroundColor(0xFF4CAF50); tvStatus.setText("✅ Sẵn sàng"); break;
-                                case "done":       tvStatus.setBackgroundColor(0xFF9E9E9E); tvStatus.setText("✔ Hoàn thành"); break;
-                                case "cancelled":  tvStatus.setBackgroundColor(0xFFF44336); tvStatus.setText("❌ Đã hủy"); break;
+                                case "pending":    tvStatus.setBackgroundColor(0xFFFF9800); tvStatus.setText("Chờ xử lý"); break;
+                                case "preparing":  tvStatus.setBackgroundColor(0xFF2196F3); tvStatus.setText("Đang làm"); break;
+                                case "ready":      tvStatus.setBackgroundColor(0xFF4CAF50); tvStatus.setText("Sẵn sàng"); break;
+                                case "done":       tvStatus.setBackgroundColor(0xFF9E9E9E); tvStatus.setText("Hoàn thành"); break;
+                                case "cancelled":  tvStatus.setBackgroundColor(0xFFF44336); tvStatus.setText("Đã hủy"); break;
                                 default:           tvStatus.setText(order.getStatus());
                             }
                             Button btnCancel = convertView.findViewById(R.id.btn_cancel_order);

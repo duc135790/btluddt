@@ -16,25 +16,18 @@ public interface ApiService {
     @POST("api/register")
     Call<ApiResponse<Void>> register(@Body Map<String, String> body);
 
+    @PUT("api/users/{username}")
+    Call<ApiResponse<Void>> updateUser(@Path("username") String username, @Body Map<String, String> body);
     @POST("api/orders")
     Call<ApiResponse<Map<String, Integer>>> createOrder(@Body Map<String, Object> body);
-
     @GET("api/orders/{username}")
     Call<ApiResponse<List<OrderApi>>> getOrders(@Path("username") String username);
-
     @PUT("api/orders/{id}/status")
     Call<ApiResponse<Void>> updateOrderStatus(@Path("id") int id, @Body Map<String, String> body);
-
     @GET("api/kitchen/orders")
     Call<ApiResponse<List<OrderApi>>> getKitchenOrders();
-
     @GET("api/stats")
     Call<ApiResponse<StatsApi>> getStats();
-
-    // MỚI
     @GET("api/tables")
     Call<ApiResponse<List<TableApi>>> getTables();
-
-    @POST("api/bookings")
-    Call<ApiResponse<Map<String, Integer>>> createBooking(@Body BookingApi booking);
 }

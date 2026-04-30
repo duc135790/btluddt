@@ -41,20 +41,29 @@
             android:orientation="horizontal" android:gravity="center_vertical"
             android:layout_marginTop="6dp">
 
-            <ImageButton android:id="@+id/btn_cart_minus"
-                android:layout_width="28dp" android:layout_height="28dp"
-                android:src="@android:drawable/ic_menu_close_clear_cancel"
-                android:backgroundTint="#EEEEEE" android:padding="4dp"/>
+            <Button android:id="@+id/btn_cart_minus"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:text="−"
+                android:textSize="18sp"
+                android:textColor="#212121"
+                android:backgroundTint="#EEEEEE"
+                android:padding="0dp"/>
 
             <TextView android:id="@+id/tv_cart_qty"
-                android:layout_width="36dp" android:layout_height="wrap_content"
+                android:layout_width="36dp"
+                android:layout_height="wrap_content"
                 android:text="1" android:textSize="16sp" android:textStyle="bold"
                 android:gravity="center" android:textColor="#212121"/>
 
-            <ImageButton android:id="@+id/btn_cart_plus"
-                android:layout_width="28dp" android:layout_height="28dp"
-                android:src="@android:drawable/ic_menu_add"
-                android:backgroundTint="#FF5722" android:tint="#FFFFFF" android:padding="4dp"/>
+            <Button android:id="@+id/btn_cart_plus"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:text="+"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#FF5722"
+                android:padding="0dp"/>
 
         </LinearLayout>
     </LinearLayout>
