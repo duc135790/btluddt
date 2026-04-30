@@ -13,7 +13,8 @@
         android:orientation="horizontal"
         android:gravity="center_vertical">
 
-        <ImageButton android:id="@+id/btn_edit_back"
+        <ImageButton
+            android:id="@+id/btn_edit_back"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:src="@android:drawable/ic_media_previous"
@@ -22,12 +23,24 @@
             android:layout_marginEnd="12dp"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Sửa thông tin cá nhân"
+            android:text="Sua thong tin"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/btn_help"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="Tro giup"
+            android:textColor="#FF5722"
+            android:textSize="13sp"
+            android:backgroundTint="#FFFFFF"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"/>
 
     </LinearLayout>
 
@@ -43,15 +56,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Họ và tên"
+            android:text="Ho va ten"
             android:textSize="13sp"
             android:textColor="#888888"
             android:layout_marginBottom="4dp"/>
 
-        <EditText android:id="@+id/et_edit_fullname"
+        <EditText
+            android:id="@+id/et_edit_fullname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nhập họ và tên"
+            android:hint="Nhap ho va ten"
             android:padding="12dp"
             android:background="@drawable/bg_edittext"
             android:layout_marginBottom="16dp"/>
@@ -59,33 +73,26 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Số điện thoại"
+            android:text="So dien thoai"
             android:textSize="13sp"
             android:textColor="#888888"
             android:layout_marginBottom="4dp"/>
 
-        <EditText android:id="@+id/et_edit_phone"
+        <EditText
+            android:id="@+id/et_edit_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nhập số điện thoại"
+            android:hint="Nhap so dien thoai"
             android:inputType="phone"
-            android:padding="12dp"
-            android:background="@drawable/bg_edittext"
-            android:layout_marginBottom="16dp"/>
-
-        <EditText android:id="@+id/et_edit_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nhập mật khẩu mới..."
-            android:inputType="textPassword"
             android:padding="12dp"
             android:background="@drawable/bg_edittext"
             android:layout_marginBottom="24dp"/>
 
-        <Button android:id="@+id/btn_edit_save"
+        <Button
+            android:id="@+id/btn_edit_save"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="Lưu thay đổi"
+            android:text="Luu thay doi"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
             android:backgroundTint="#FF5722"/>

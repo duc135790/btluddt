@@ -75,7 +75,7 @@
             android:id="@+id/btn_cancel_order"
             android:layout_width="match_parent"
             android:layout_height="36dp"
-            android:text="❌ Hủy đơn"
+            android:text="Hủy đơn"
             android:textSize="13sp"
             android:textColor="#FFFFFF"
             android:backgroundTint="#F44336"
