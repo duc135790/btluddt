@@ -59,7 +59,7 @@ public class CartFragment extends Fragment {
                 tvQty.setText(String.valueOf(ci.getQuantity()));
                 if (ci.getNote() != null && !ci.getNote().isEmpty()) {
                     tvNote.setVisibility(View.VISIBLE);
-                    tvNote.setText("📝 " + ci.getNote());
+                    tvNote.setText(" " + ci.getNote());
                 } else {
                     tvNote.setVisibility(View.GONE);
                 }

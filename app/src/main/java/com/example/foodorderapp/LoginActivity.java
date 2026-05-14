@@ -1,5 +1,4 @@
 package com.example.foodorderapp;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,46 +12,36 @@ import java.util.Map;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
 public class LoginActivity extends AppCompatActivity {
-
     private EditText etUsername, etPassword;
     private ApiService apiService;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         etUsername = findViewById(R.id.et_username);
         etPassword = findViewById(R.id.et_password);
         Button btnLogin = findViewById(R.id.btn_login);
         TextView tvRegister = findViewById(R.id.tv_register);
         apiService = ApiClient.getClient().create(ApiService.class);
-
         // Kiểm tra đã login chưa
         SharedPreferences prefs = getSharedPreferences("user_prefs", MODE_PRIVATE);
         if (prefs.contains("username")) {
             goToMain();
             return;
         }
-
         btnLogin.setOnClickListener(v -> {
             String username = etUsername.getText().toString().trim();
             String password = etPassword.getText().toString().trim();
-
             if (username.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Vui lòng nhập đầy đủ!", Toast.LENGTH_SHORT).show();
                 return;
             }
-
             btnLogin.setEnabled(false);
             btnLogin.setText("Đang đăng nhập...");
-
             Map<String, String> body = new HashMap<>();
             body.put("username", username);
             body.put("password", password);
-
             apiService.login(body).enqueue(new Callback<ApiResponse<UserApi>>() {
                 @Override
                 public void onResponse(Call<ApiResponse<UserApi>> call, Response<ApiResponse<UserApi>> response) {

@@ -1,21 +1,15 @@
 package com.example.foodorderapp;
-
 import java.util.List;
 import java.util.Map;
 import retrofit2.Call;
 import retrofit2.http.*;
-
 public interface ApiService {
-
     @GET("api/menu")
     Call<ApiResponse<List<MenuItemApi>>> getMenu(@Query("search") String search);
-
     @POST("api/login")
     Call<ApiResponse<UserApi>> login(@Body Map<String, String> body);
-
     @POST("api/register")
     Call<ApiResponse<Void>> register(@Body Map<String, String> body);
-
     @PUT("api/users/{username}")
     Call<ApiResponse<Void>> updateUser(@Path("username") String username, @Body Map<String, String> body);
     @POST("api/orders")

@@ -22,8 +22,7 @@ public class FoodDetailActivity extends AppCompatActivity {
         item = new MenuItemApi(
                 getIntent().getStringExtra("name"),
                 getIntent().getDoubleExtra("price", 0),
-                getIntent().getStringExtra("desc"),
-                getIntent().getIntExtra("category_id", 1)
+                getIntent().getStringExtra("desc")
         );
         item.setId(getIntent().getIntExtra("id", 0));
         NumberFormat fmt = NumberFormat.getInstance(new Locale("vi", "VN"));
@@ -88,7 +87,7 @@ public class FoodDetailActivity extends AppCompatActivity {
             ci.setNote(etNote.getText().toString().trim());
             ci.setTableNumber(tableNumber);
             CartManager.getInstance().addItem(ci);
-            Toast.makeText(this, "✅ Đã thêm " + item.getName() + " x" + quantity, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Đã thêm " + item.getName() + " x" + quantity, Toast.LENGTH_SHORT).show();
             finish();
         });
     }

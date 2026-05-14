@@ -1,5 +1,4 @@
 package com.example.foodorderapp;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -16,19 +15,15 @@ import java.util.Locale;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
 public class HomeFragment extends Fragment {
-
     private ListView lvMenu;
     private EditText etSearch;
     private List<MenuItemApi> menuList = new ArrayList<>();
     private ApiService apiService;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
-
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -36,13 +31,10 @@ public class HomeFragment extends Fragment {
         etSearch = view.findViewById(R.id.et_search);
         TextView tvGreeting = view.findViewById(R.id.tv_greeting);
         apiService = ApiClient.getClient().create(ApiService.class);
-
         SharedPreferences prefs = requireActivity().getSharedPreferences("user_prefs", requireActivity().MODE_PRIVATE);
         tvGreeting.setText("Xin chào, " + prefs.getString("fullname", "bạn") + "! ");
-
         setupBanner(view);
         loadMenu(null);
-
         etSearch.addTextChangedListener(new TextWatcher() {
             @Override public void beforeTextChanged(CharSequence s, int st, int c, int a) {}
             @Override public void afterTextChanged(Editable s) {}
@@ -60,7 +52,6 @@ public class HomeFragment extends Fragment {
             intent.putExtra("name",        item.getName());
             intent.putExtra("price",       item.getPrice());
             intent.putExtra("desc",        item.getDescription());
-            intent.putExtra("category_id", item.getCategoryId());
             intent.putExtra("image_name",  item.getImageName()); // MỚI
             startActivity(intent);
         });
