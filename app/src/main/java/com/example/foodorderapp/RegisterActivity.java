@@ -30,12 +30,21 @@ public class RegisterActivity extends AppCompatActivity {
             String phone    = etPhone.getText().toString().trim();
             String username = etUsername.getText().toString().trim();
             String password = etPassword.getText().toString().trim();
+
             if (fullname.isEmpty() || username.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Vui lòng nhập đầy đủ!", Toast.LENGTH_SHORT).show();
-                return;}
+                return;
+            }
             if (password.length() < 6) {
                 Toast.makeText(this, "Mật khẩu tối thiểu 6 ký tự!", Toast.LENGTH_SHORT).show();
-                return;}
+                return;
+            }
+            // Validate SĐT nếu có nhập
+            if (!phone.isEmpty() && !phone.matches("^(0[3|5|7|8|9])\\d{8}$")) {
+                Toast.makeText(this, "Số điện thoại không hợp lệ!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             btnRegister.setEnabled(false);
             Map<String, String> body = new HashMap<>();
             body.put("username", username);

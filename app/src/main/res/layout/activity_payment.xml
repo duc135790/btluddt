@@ -21,6 +21,7 @@
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
             android:orientation="vertical" android:padding="16dp">
 
+            <!-- Don hang -->
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="vertical" android:background="#FFFFFF"
                 android:padding="16dp" android:layout_marginBottom="12dp" android:elevation="2dp">
@@ -36,6 +37,20 @@
                     android:textColor="#FF5722" android:layout_marginTop="8dp"/>
             </LinearLayout>
 
+            <!-- Chon ban - THEM MOI -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:background="#FFFFFF"
+                android:padding="16dp" android:layout_marginBottom="12dp" android:elevation="2dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Chọn bàn *" android:textStyle="bold"
+                    android:textSize="16sp" android:layout_marginBottom="8dp"/>
+                <Spinner
+                    android:id="@+id/sp_table"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <!-- Thong tin giao hang - GIU NGUYEN -->
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="vertical" android:background="#FFFFFF"
                 android:padding="16dp" android:layout_marginBottom="12dp" android:elevation="2dp">
@@ -56,6 +71,7 @@
                     android:background="@drawable/bg_edittext"/>
             </LinearLayout>
 
+            <!-- Phuong thuc thanh toan - GIU NGUYEN -->
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="vertical" android:background="#FFFFFF"
                 android:padding="16dp" android:elevation="2dp">

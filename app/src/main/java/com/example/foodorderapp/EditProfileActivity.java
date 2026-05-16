@@ -34,7 +34,6 @@ public class EditProfileActivity extends AppCompatActivity {
 
         btnBack.setOnClickListener(v -> finish());
 
-        // Nut Tro giup: goi dien 1800
         btnHelp.setOnClickListener(v -> {
             android.content.Intent callIntent = new android.content.Intent(android.content.Intent.ACTION_DIAL);
             callIntent.setData(android.net.Uri.parse("tel:1800"));
@@ -46,7 +45,12 @@ public class EditProfileActivity extends AppCompatActivity {
             String phone    = etPhone.getText().toString().trim();
 
             if (fullname.isEmpty()) {
-                Toast.makeText(this, "Vui long nhap ho ten!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Vui lòng nhập họ tên!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            // Validate SĐT nếu có nhập
+            if (!phone.isEmpty() && !phone.matches("^(0[3|5|7|8|9])\\d{8}$")) {
+                Toast.makeText(this, "Số điện thoại không hợp lệ!", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -65,16 +69,16 @@ public class EditProfileActivity extends AppCompatActivity {
                                 .putString("fullname", fullname)
                                 .putString("phone", phone)
                                 .apply();
-                        Toast.makeText(EditProfileActivity.this, "Cap nhat thanh cong!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditProfileActivity.this, "Cập nhật thành công!", Toast.LENGTH_SHORT).show();
                         finish();
                     } else {
-                        Toast.makeText(EditProfileActivity.this, "Cap nhat that bai!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditProfileActivity.this, "Cập nhật thất bại!", Toast.LENGTH_SHORT).show();
                     }
                 }
                 @Override
                 public void onFailure(Call<ApiResponse<Void>> call, Throwable t) {
                     btnSave.setEnabled(true);
-                    Toast.makeText(EditProfileActivity.this, "Loi ket noi!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditProfileActivity.this, "Lỗi kết nối!", Toast.LENGTH_SHORT).show();
                 }
             });
         });
